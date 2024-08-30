@@ -1,5 +1,5 @@
 FROM quay.io/redhat-user-workloads/exd-rcerven-tenant/testnudging/test1:96b8100fbc7d72684726ec77802bfdfd3225582b AS nudgedimage
-
+USER 0
 RUN echo "nudged image"
 RUN mkdir /testdir
 COPY somedir/app.py /testdir
@@ -24,6 +24,8 @@ RUN \
     then pip install -r *.txt; \
   fi
 
+USER 0
+RUN mkdir /testdir
 COPY --from=nudgedimage /testdir/* .
 
 # Specify the command to run on container start
