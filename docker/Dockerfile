@@ -1,4 +1,4 @@
-FROM quay.io/redhat-user-workloads/exd-rcerven-tenant/testnudging/test1:96b8100fbc7d72684726ec77802bfdfd3225582b
+FROM quay.io/redhat-user-workloads/exd-rcerven-tenant/testnudging/test1:96b8100fbc7d72684726ec77802bfdfd3225582b AS nudgedimage
 
 RUN echo "nudged image"
 
@@ -22,11 +22,7 @@ RUN \
     then pip install -r *.txt; \
   fi
 
-ARG TEST1
-ARG TEST2
-
-RUN echo "arg TEST1: ${TEST1}"
-RUN echo "arg TEST2: ${TEST2}"
+COPY --from=nudgeimage /bin/python /tmp/python
 
 # Specify the command to run on container start
 CMD [ "python", "./app.py" ]
