@@ -24,7 +24,7 @@ RUN \
     then pip install -r *.txt; \
   fi
 
-COPY --from=nudgeimage /testdir/* .
+COPY --from=nudgedimage /testdir/* .
 
 # Specify the command to run on container start
 CMD [ "python", "./app.py" ]
