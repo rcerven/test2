@@ -4,7 +4,7 @@ RUN echo "nudged image"
 RUN mkdir /testdir
 COPY somedir/app.py /testdir
 
-FROM registry.access.redhat.com/ubi9/python-39:1-186.1720018722
+FROM registry.access.redhat.com/ubi9/python-39:1-192.1724040313
 
 # By default, listen on port 8081
 EXPOSE 8081/tcp
