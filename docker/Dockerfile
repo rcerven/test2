@@ -1,3 +1,7 @@
+FROM quay.io/redhat-user-workloads/exd-rcerven-tenant/testnudging/test1:96b8100fbc7d72684726ec77802bfdfd3225582b
+
+run echo "nudged image"
+
 FROM registry.access.redhat.com/ubi9/python-39:1-186.1720018722
 
 # By default, listen on port 8081
