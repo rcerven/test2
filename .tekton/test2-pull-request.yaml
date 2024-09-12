@@ -18,6 +18,14 @@ metadata:
   name: test2-on-pull-request
   namespace: exd-rcerven-tenant
 spec:
+  taskRunSpecs:
+  - pipelineTaskName: build-container
+    computeResources:
+      requests:
+        cpu: 300m
+        memory: 256Mi
+      limits:
+        memory: 2Gi
   params:
   - name: git-url
     value: '{{source_url}}'
