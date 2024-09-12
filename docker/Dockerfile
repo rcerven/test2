@@ -1,4 +1,4 @@
-FROM quay.io/redhat-user-workloads/exd-rcerven-tenant/testnudging/test1:08d0eb8aaa8c0668d481aebf7fb8d3bb1f42ca5b@sha256:c51451c1f98b5c3fb7a4e3c13e9106bcf848303ad2c4ab0b561333d3f82ae37b AS nudgedimage
+FROM quay.io/redhat-user-workloads/exd-rcerven-tenant/testnudging/test1:08d0eb8aaa8c0668d481aebf7fb8d3bb1f42ca5b@sha256:711f813b8c6db06a6b54f68acba99051383229540688e81b74827978ce4d4ea6 AS nudgedimage
 USER 0
 RUN echo "nudged image"
 RUN mkdir /testdir
