@@ -3,6 +3,7 @@ kind: PipelineRun
 metadata:
   annotations:
     build.appstudio.openshift.io/repo: https://github.com/rcerven/test2?rev={{revision}}
+    build.appstudio.openshift.io/build-nudge-files: '.*.Dockerfile.*, .*.yaml, .*.Containerfile.*'
     build.appstudio.redhat.com/commit_sha: '{{revision}}'
     build.appstudio.redhat.com/pull_request_number: '{{pull_request_number}}'
     build.appstudio.redhat.com/target_branch: '{{target_branch}}'
@@ -17,13 +18,21 @@ metadata:
   name: ttest2-on-pull-request
   namespace: rcerven-test
 spec:
+  taskRunSpecs:
+  - pipelineTaskName: build-container
+    computeResources:
+      requests:
+        cpu: 300m
+        memory: 256Mi
+      limits:
+        memory: 2Gi
   params:
   - name: git-url
     value: '{{source_url}}'
   - name: revision
     value: '{{revision}}'
   - name: output-image
-    value: quay.io/rcerven_rhtaptest/rcerven-test/testnudging/ttest2:on-pr-{{revision}}
+    value: quay.io/repository/redhat-user-workloads/exd-rcerven-tenant/testnew/newtest2:{{revision}}
   - name: image-expires-after
     value: 5d
   - name: dockerfile
@@ -95,7 +104,7 @@ spec:
       description: Force rebuild image
       name: rebuild
       type: string
-    - default: "false"
+    - default: "true"
       description: Skip checks against built image
       name: skip-checks
       type: string
