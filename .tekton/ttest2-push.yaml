@@ -31,7 +31,7 @@ spec:
   - name: revision
     value: '{{revision}}'
   - name: output-image
-    value: quay.io/repository/redhat-user-workloads/exd-rcerven-tenant/testnew/newtest2:{{revision}}
+    value: quay.io/redhat-user-workloads/exd-rcerven-tenant/testnew/newtest2:{{revision}}
   - name: dockerfile
     value: docker/Dockerfile
   pipelineSpec:
