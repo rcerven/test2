@@ -3,7 +3,6 @@ kind: PipelineRun
 metadata:
   annotations:
     build.appstudio.openshift.io/repo: https://github.com/rcerven/test2?rev={{revision}}
-    build.appstudio.openshift.io/build-nudge-files: '.*.Dockerfile.*, .*.yaml, .*.Containerfile.*'
     build.appstudio.redhat.com/commit_sha: '{{revision}}'
     build.appstudio.redhat.com/pull_request_number: '{{pull_request_number}}'
     build.appstudio.redhat.com/target_branch: '{{target_branch}}'
@@ -18,21 +17,13 @@ metadata:
   name: ttest2-on-pull-request
   namespace: rcerven-test
 spec:
-  taskRunSpecs:
-  - pipelineTaskName: build-container
-    computeResources:
-      requests:
-        cpu: 300m
-        memory: 256Mi
-      limits:
-        memory: 2Gi
   params:
   - name: git-url
     value: '{{source_url}}'
   - name: revision
     value: '{{revision}}'
   - name: output-image
-    value: quay.io/redhat-user-workloads/exd-rcerven-tenant/testnew/newtest2:{{revision}}
+    value: quay.io/rcerven_rhtaptest/rcerven-test/testnudging/ttest2:on-pr-{{revision}}
   - name: image-expires-after
     value: 5d
   - name: dockerfile
@@ -104,7 +95,7 @@ spec:
       description: Force rebuild image
       name: rebuild
       type: string
-    - default: "true"
+    - default: "false"
       description: Skip checks against built image
       name: skip-checks
       type: string
@@ -249,7 +240,7 @@ spec:
         - name: name
           value: buildah
         - name: bundle
-          value: quay.io/konflux-ci/tekton-catalog/task-buildah:0.2@sha256:e107cfdf4ee68741ad366b2768cd33e2d5f99569b639f95f50df8b9835c2d144
+          value: quay.io/konflux-ci/tekton-catalog/task-buildah:0.2@sha256:8cc93c901e612b744a5fad4692f00ba48c08fcd18d4877d6356847906d5f3147
         - name: kind
           value: task
         resolver: bundles
@@ -352,7 +343,7 @@ spec:
         - name: name
           value: clair-scan
         - name: bundle
-          value: quay.io/konflux-ci/tekton-catalog/task-clair-scan:0.2@sha256:37b9187c1d5f6672bbc9c61d88fc71a3ee688076cb16edef42d1ff92a59027fb
+          value: quay.io/konflux-ci/tekton-catalog/task-clair-scan:0.2@sha256:9f4ddafd599e06b319cece5a4b8ac36b9e7ec46bea378bc6c6af735d3f7f8060
         - name: kind
           value: task
         resolver: bundles
