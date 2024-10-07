@@ -1,14 +1,14 @@
-#FROM quay.io/rcerven_rhtaptest/rcerven-test/testnudging/ttest1:86e7ff14cf4643dd77173678358cdf994280403d@sha256:2805fb7fc94fdc325172ddfc22f7bbf4dbae5bae6881796272862ed4cf7d2de0 AS nudgedimage
-#USER 0
-#RUN echo "nudged image"
-#RUN mkdir /testdir
-#COPY somedir/app.py /testdir
-
-FROM quay.io/redhat-user-workloads/exd-rcerven-tenant/testnew/newtest1:09c143305d342da9c598f63a0ea25675c0c831e7@sha256:c03dd26fb9259a31039b20429151b993cb5b07ab7460bd5c919f4c494fcd0924 AS nudgedimagesecond
+FROM quay.io/rcerven_rhtaptest/rcerven-test/testnudging/ttest1:dcd969e325ba6a99598c8704428286e3faa3c50e@sha256:c19e46701b2b851f2c988df30fe979ee42531d7aaf4ed5d554ab637a7acdd448 AS nudgedimage
 USER 0
 RUN echo "nudged image"
 RUN mkdir /testdir
 COPY somedir/app.py /testdir
+
+#FROM quay.io/redhat-user-workloads/exd-rcerven-tenant/testnew/newtest1:09c143305d342da9c598f63a0ea25675c0c831e7@sha256:c03dd26fb9259a31039b20429151b993cb5b07ab7460bd5c919f4c494fcd0924 AS nudgedimagesecond
+#USER 0
+#RUN echo "nudged image"
+#RUN mkdir /testdir
+#COPY somedir/app.py /testdir
 
 
 FROM registry.access.redhat.com/ubi9/python-39:1-197.1725907694
@@ -33,8 +33,8 @@ RUN \
 
 USER 0
 RUN mkdir /testdir
-#COPY --from=nudgedimage /testdir/* .
-COPY --from=nudgedimagesecond /testdir/* .
+COPY --from=nudgedimage /testdir/* .
+#COPY --from=nudgedimagesecond /testdir/* .
 
 # Specify the command to run on container start
 CMD [ "python", "./app.py" ]
