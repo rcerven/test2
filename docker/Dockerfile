@@ -11,7 +11,7 @@ COPY somedir/app.py /testdir
 #COPY somedir/app.py /testdir
 
 
-FROM registry.access.redhat.com/ubi9/python-39:1-197.1725907694
+FROM registry.access.redhat.com/ubi9/python-39:9.5-1737460369
 
 # By default, listen on port 8081
 EXPOSE 8081/tcp
