@@ -5,6 +5,7 @@ metadata:
     build.appstudio.openshift.io/repo: https://github.com/rcerven/test2?rev={{revision}}
     build.appstudio.redhat.com/commit_sha: '{{revision}}'
     build.appstudio.redhat.com/target_branch: '{{target_branch}}'
+    pipelinesascode.tekton.dev/cancel-in-progress: "false"
     pipelinesascode.tekton.dev/max-keep-runs: "3"
     pipelinesascode.tekton.dev/on-cel-expression: event == "push" && target_branch
       == "main"
@@ -22,7 +23,7 @@ spec:
   - name: revision
     value: '{{revision}}'
   - name: output-image
-    value: quay.io/rcerven_rhtaptest/rcerven-test/testnudging/ttest1:{{revision}}
+    value: quay.io/rcerven_rhtaptest/rcerven-test/testnudging/ttest2:{{revision}}
   - name: dockerfile
     value: docker/Dockerfile
   pipelineSpec:
