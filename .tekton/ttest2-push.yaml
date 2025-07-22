@@ -24,14 +24,14 @@ spec:
       - name: build
         computeResources:
           requests:
-            cpu: 300m
+            cpu: 100m
             memory: 256Mi
           limits:
             memory: 2Gi
   - pipelineTaskName: build-container
     computeResources:
       requests:
-        cpu: 300m
+        cpu: 100m
         memory: 256Mi
       limits:
         memory: 2Gi
@@ -45,14 +45,14 @@ spec:
   - pipelineTaskName: build-image-index
     computeResources:
       requests:
-        cpu: 300m
+        cpu: 100m
         memory: 128Mi
       limits:
         memory: 256Gi
   - pipelineTaskName: build-source-image
     computeResources:
       requests:
-        cpu: 300m
+        cpu: 100m
         memory: 128Mi
       limits:
         memory: 256Gi
