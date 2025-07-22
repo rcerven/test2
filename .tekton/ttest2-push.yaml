@@ -28,12 +28,13 @@ spec:
             memory: 256Mi
           limits:
             memory: 2Gi
-#    computeResources:
-#      requests:
-#        cpu: 300m
-#        memory: 256Mi
-#      limits:
-#        memory: 2Gi
+  - pipelineTaskName: build-container
+    computeResources:
+      requests:
+        cpu: 300m
+        memory: 256Mi
+      limits:
+        memory: 2Gi
   - pipelineTaskName: prefetch-dependencies
     computeResources:
       requests:
