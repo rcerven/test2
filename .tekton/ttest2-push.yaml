@@ -19,22 +19,22 @@ metadata:
   namespace: rcerven-test
 spec:
   taskRunSpecs:
-  - pipelineTaskName: init
-    stepSpecs:
-      - name: init
-        computeResources:
-          requests:
-            cpu: 10m
-            memory: 64Mi
-          limits:
-            memory: 128Gi
 #  - pipelineTaskName: init
-#    computeResources:
-#      requests:
-#        cpu: 10m
-#        memory: 64Mi
-#      limits:
-#        memory: 128Gi
+#    stepSpecs:
+#      - name: init
+#        computeResources:
+#          requests:
+#            cpu: 10m
+#            memory: 64Mi
+#          limits:
+#            memory: 128Gi
+  - pipelineTaskName: init
+    computeResources:
+      requests:
+        cpu: 10m
+        memory: 64Mi
+      limits:
+        memory: 128Gi
   params:
   - name: git-url
     value: '{{source_url}}'
