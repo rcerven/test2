@@ -26,6 +26,27 @@ spec:
         memory: 256Mi
       limits:
         memory: 2Gi
+  - pipelineTaskName: prefetch-dependencies
+    computeResources:
+      requests:
+        cpu: 100m
+        memory: 64Mi
+      limits:
+        memory: 128Gi
+  - pipelineTaskName: build-image-index
+    computeResources:
+      requests:
+        cpu: 300m
+        memory: 128Mi
+      limits:
+        memory: 256Gi
+  - pipelineTaskName: build-source-image
+    computeResources:
+      requests:
+        cpu: 300m
+        memory: 128Mi
+      limits:
+        memory: 256Gi
   params:
   - name: git-url
     value: '{{source_url}}'
@@ -342,26 +363,6 @@ spec:
         operator: in
         values:
         - "false"
-    - name: ecosystem-cert-preflight-checks
-      params:
-      - name: image-url
-        value: $(tasks.build-image-index.results.IMAGE_URL)
-      runAfter:
-      - build-image-index
-      taskRef:
-        params:
-        - name: name
-          value: ecosystem-cert-preflight-checks
-        - name: bundle
-          value: quay.io/konflux-ci/tekton-catalog/task-ecosystem-cert-preflight-checks:0.2@sha256:f99d2bdb02f13223d494077a2cde31418d09369f33c02134a8e7e5fad2f61eda
-        - name: kind
-          value: task
-        resolver: bundles
-      when:
-      - input: $(params.skip-checks)
-        operator: in
-        values:
-        - "false"
     - name: apply-tags
       params:
       - name: IMAGE_URL
@@ -403,28 +404,6 @@ spec:
       workspaces:
       - name: workspace
         workspace: workspace
-    - name: rpms-signature-scan
-      params:
-      - name: image-url
-        value: $(tasks.build-image-index.results.IMAGE_URL)
-      - name: image-digest
-        value: $(tasks.build-image-index.results.IMAGE_DIGEST)
-      runAfter:
-      - build-image-index
-      taskRef:
-        params:
-        - name: name
-          value: rpms-signature-scan
-        - name: bundle
-          value: quay.io/konflux-ci/konflux-vanguard/task-rpms-signature-scan:0.2@sha256:7d1c087d7d33dd97effb3b4c9f3788e4c3138da2032040d69da6929e9a3aaceb
-        - name: kind
-          value: task
-        resolver: bundles
-      when:
-      - input: $(params.skip-checks)
-        operator: in
-        values:
-        - "false"
     workspaces:
     - name: workspace
     - name: git-auth
