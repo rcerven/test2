@@ -36,6 +36,15 @@ spec:
       limits:
         memory: 2Gi
   - pipelineTaskName: prefetch-dependencies
+    stepSpecs:
+      - name: prefetch-dependencies
+        computeResources:
+          requests:
+            cpu: 100m
+            memory: 64Mi
+          limits:
+            memory: 128Gi
+  - pipelineTaskName: prefetch-dependencies
     computeResources:
       requests:
         cpu: 100m
