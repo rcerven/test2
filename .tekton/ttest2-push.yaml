@@ -19,30 +19,29 @@ metadata:
   namespace: rcerven-test
 spec:
   taskRunSpecs:
-#  - pipelineTaskName: build-container
-#    stepSpecs:
-#      - name: build
-#        computeResources:
-#          requests:
-#            cpu: 10m
-#            memory: 256Mi
-#          limits:
-#            memory: 2Gi
-#      - name: prepare-sboms
-#        computeResources:
-#          requests:
-#            cpu: 10m
-#            memory: 256Mi
-#          limits:
-#            memory: 2Gi
-#      - name: upload-sbom
-#        computeResources:
-#          requests:
-#            cpu: 10m
-#            memory: 256Mi
-#          limits:
-#            memory: 2Gi
-
+  - pipelineTaskName: build-container
+    stepSpecs:
+      - name: build
+        computeResources:
+          requests:
+            cpu: 10m
+            memory: 256Mi
+          limits:
+            memory: 2Gi
+      - name: prepare-sboms
+        computeResources:
+          requests:
+            cpu: 10m
+            memory: 256Mi
+          limits:
+            memory: 2Gi
+      - name: upload-sbom
+        computeResources:
+          requests:
+            cpu: 10m
+            memory: 256Mi
+          limits:
+            memory: 2Gi
   - pipelineTaskName: build-container
     computeResources:
       requests:
