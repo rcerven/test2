@@ -109,6 +109,13 @@ spec:
         memory: 64Mi
       limits:
         memory: 256Gi
+  - pipelineTaskName: clone-repository
+    computeResources:
+      requests:
+        cpu: 10m
+        memory: 64Mi
+      limits:
+        memory: 256Gi
   params:
   - name: git-url
     value: '{{source_url}}'
