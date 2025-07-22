@@ -24,36 +24,36 @@ spec:
       - name: build
         computeResources:
           requests:
-            cpu: 10m
-            memory: 64Mi
+            cpu: 100m
+            memory: 256Mi
           limits:
             memory: 1Gi
       - name: prepare-sboms
         computeResources:
           requests:
-            cpu: 10m
-            memory: 64Mi
+            cpu: 100m
+            memory: 256Mi
           limits:
             memory: 1Gi
       - name: upload-sbom
         computeResources:
           requests:
-            cpu: 10m
-            memory: 64Mi
+            cpu: 100m
+            memory: 256Mi
           limits:
             memory: 1Gi
       - name: push
         computeResources:
           requests:
-            cpu: 10m
-            memory: 64Mi
+            cpu: 100m
+            memory: 256Mi
           limits:
             memory: 1Gi
       - name: sbom-syft-generate
         computeResources:
           requests:
-            cpu: 10m
-            memory: 64Mi
+            cpu: 100m
+            memory: 256Mi
           limits:
             memory: 1Gi
   - pipelineTaskName: build-container
