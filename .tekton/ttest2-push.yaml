@@ -28,13 +28,28 @@ spec:
             memory: 256Mi
           limits:
             memory: 2Gi
-  - pipelineTaskName: build-container
-    computeResources:
-      requests:
-        cpu: 10m
-        memory: 256Mi
-      limits:
-        memory: 2Gi
+      - name: prepare-sboms
+        computeResources:
+          requests:
+            cpu: 10m
+            memory: 256Mi
+          limits:
+            memory: 2Gi
+      - name: upload-sbom
+        computeResources:
+          requests:
+            cpu: 10m
+            memory: 256Mi
+          limits:
+            memory: 2Gi
+
+#  - pipelineTaskName: build-container
+#    computeResources:
+#      requests:
+#        cpu: 10m
+#        memory: 256Mi
+#      limits:
+#        memory: 2Gi
   - pipelineTaskName: prefetch-dependencies
     stepSpecs:
       - name: prefetch-dependencies
@@ -44,13 +59,13 @@ spec:
             memory: 64Mi
           limits:
             memory: 128Gi
-  - pipelineTaskName: prefetch-dependencies
-    computeResources:
-      requests:
-        cpu: 10m
-        memory: 64Mi
-      limits:
-        memory: 128Gi
+#  - pipelineTaskName: prefetch-dependencies
+#    computeResources:
+#      requests:
+#        cpu: 10m
+#        memory: 64Mi
+#      limits:
+#        memory: 128Gi
   - pipelineTaskName: build-image-index
     computeResources:
       requests:
