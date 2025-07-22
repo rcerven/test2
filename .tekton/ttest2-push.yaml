@@ -24,14 +24,14 @@ spec:
       - name: build
         computeResources:
           requests:
-            cpu: 100m
+            cpu: 10m
             memory: 256Mi
           limits:
             memory: 2Gi
   - pipelineTaskName: build-container
     computeResources:
       requests:
-        cpu: 100m
+        cpu: 10m
         memory: 256Mi
       limits:
         memory: 2Gi
@@ -40,28 +40,28 @@ spec:
       - name: prefetch-dependencies
         computeResources:
           requests:
-            cpu: 100m
+            cpu: 10m
             memory: 64Mi
           limits:
             memory: 128Gi
   - pipelineTaskName: prefetch-dependencies
     computeResources:
       requests:
-        cpu: 100m
+        cpu: 10m
         memory: 64Mi
       limits:
         memory: 128Gi
   - pipelineTaskName: build-image-index
     computeResources:
       requests:
-        cpu: 100m
+        cpu: 10m
         memory: 128Mi
       limits:
         memory: 256Gi
   - pipelineTaskName: build-source-image
     computeResources:
       requests:
-        cpu: 100m
+        cpu: 10m
         memory: 128Mi
       limits:
         memory: 256Gi
