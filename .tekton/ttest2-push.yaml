@@ -20,6 +20,14 @@ metadata:
 spec:
   taskRunSpecs:
   - pipelineTaskName: build-container
+    stepSpecs:
+      - name: build
+        computeResources:
+          requests:
+            cpu: 300m
+            memory: 256Mi
+          limits:
+            memory: 2Gi
     computeResources:
       requests:
         cpu: 300m
