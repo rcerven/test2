@@ -19,8 +19,68 @@ metadata:
   namespace: rcerven-test
 spec:
   taskRunSpecs:
+  - pipelineTaskName: build-container
+    stepSpecs:
+      - name: build
+        computeResources:
+          requests:
+            cpu: 10m
+            memory: 64Mi
+          limits:
+            memory: 1Gi
+      - name: prepare-sboms
+        computeResources:
+          requests:
+            cpu: 10m
+            memory: 64Mi
+          limits:
+            memory: 1Gi
+      - name: upload-sbom
+        computeResources:
+          requests:
+            cpu: 10m
+            memory: 64Mi
+          limits:
+            memory: 1Gi
+      - name: push
+        computeResources:
+          requests:
+            cpu: 10m
+            memory: 64Mi
+          limits:
+            memory: 1Gi
+      - name: sbom-syft-generate
+        computeResources:
+          requests:
+            cpu: 10m
+            memory: 64Mi
+          limits:
+            memory: 1Gi
+  - pipelineTaskName: build-container
+    computeResources:
+      requests:
+        cpu: 10m
+        memory: 64Mi
+      limits:
+        memory: 2Gi
+  - pipelineTaskName: prefetch-dependencies
+    stepSpecs:
+      - name: prefetch-dependencies
+        computeResources:
+          requests:
+            cpu: 10m
+            memory: 64Mi
+          limits:
+            memory: 128Gi
+  - pipelineTaskName: prefetch-dependencies
+    computeResources:
+      requests:
+        cpu: 10m
+        memory: 64Mi
+      limits:
+        memory: 128Gi
   - pipelineTaskName: init
-    stepOverrides:
+    stepSpecs:
       - name: init
         computeResources:
           requests:
@@ -28,23 +88,27 @@ spec:
             memory: 64Mi
           limits:
             memory: 128Gi
-
-#  - pipelineTaskName: init
-#    stepSpecs:
-#      - name: init
-#        computeResources:
-#          requests:
-#            cpu: 10m
-#            memory: 64Mi
-#          limits:
-#            memory: 128Gi
-#  - pipelineTaskName: init
-#    computeResources:
-#      requests:
-#        cpu: 10m
-#        memory: 64Mi
-#      limits:
-#        memory: 128Gi
+  - pipelineTaskName: init
+    computeResources:
+      requests:
+        cpu: 10m
+        memory: 64Mi
+      limits:
+        memory: 128Gi
+  - pipelineTaskName: build-image-index
+    computeResources:
+      requests:
+        cpu: 10m
+        memory: 64Mi
+      limits:
+        memory: 256Gi
+  - pipelineTaskName: build-source-image
+    computeResources:
+      requests:
+        cpu: 10m
+        memory: 64Mi
+      limits:
+        memory: 256Gi
   params:
   - name: git-url
     value: '{{source_url}}'
