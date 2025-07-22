@@ -25,42 +25,42 @@ spec:
         computeResources:
           requests:
             cpu: 10m
-            memory: 128Mi
+            memory: 64Mi
           limits:
             memory: 1Gi
       - name: prepare-sboms
         computeResources:
           requests:
             cpu: 10m
-            memory: 128Mi
+            memory: 64Mi
           limits:
             memory: 1Gi
       - name: upload-sbom
         computeResources:
           requests:
             cpu: 10m
-            memory: 128Mi
+            memory: 64Mi
           limits:
             memory: 1Gi
       - name: push
         computeResources:
           requests:
             cpu: 10m
-            memory: 128Mi
+            memory: 64Mi
           limits:
             memory: 1Gi
       - name: sbom-syft-generate
         computeResources:
           requests:
             cpu: 10m
-            memory: 128Mi
+            memory: 64Mi
           limits:
             memory: 1Gi
   - pipelineTaskName: build-container
     computeResources:
       requests:
         cpu: 10m
-        memory: 256Mi
+        memory: 64Mi
       limits:
         memory: 2Gi
   - pipelineTaskName: prefetch-dependencies
@@ -84,14 +84,14 @@ spec:
     computeResources:
       requests:
         cpu: 10m
-        memory: 128Mi
+        memory: 64Mi
       limits:
         memory: 256Gi
   - pipelineTaskName: build-source-image
     computeResources:
       requests:
         cpu: 10m
-        memory: 128Mi
+        memory: 64Mi
       limits:
         memory: 256Gi
   params:
