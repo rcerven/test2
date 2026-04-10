@@ -1,4 +1,4 @@
-FROM quay.io/redhat-user-workloads-stage/exd-rcerven-tenant/rcerven-test/testnudging/ttest1:ttest1-on-pull-request-45mmq-build-container@sha256:16a50a7c8cdb08cc0b6431a7da52463e83ab56faa1e1ac961cb3086f6820715d AS nudgedimage
+FROM quay.io/redhat-user-workloads-stage/exd-rcerven-tenant/rcerven-test/testnudging/ttest1:f612b24c2dde1586ebdd812e4ff46aaa8bcc4d75@sha256:4965228d0600635f4de221da1754c439c4ac3f94d86bec28a1899b0b327063f6 AS nudgedimage
 #FROM quay.io/redhat-user-workloads/exd-rcerven-tenant/testnew/newtest1:a01e755d64e5241c475a4d71626434faa2f053b0@sha256:1cc0ea244a57aa6c0ca9063fe1527d69fbe77b4f2571f5e2081747aaf73fd392 AS nudgedimage
      
 USER 0
