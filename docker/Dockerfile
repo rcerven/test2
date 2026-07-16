@@ -1,4 +1,4 @@
-FROM quay.io/rcerven_rhtaptest/rcerven-test/testnudging/ttest1:ec300646a3221dd150bbc30e009d8199fa807e19@sha256:7f12692a9a5f4eed71a5fc141af2e2eaa0ef8a671c0ef60a243322e0f03ef644 AS nudgedimage
+FROM quay.io/rcerven_rhtaptest/rcerven-test/testnudging/ttest1:ec300646a3221dd150bbc30e009d8199fa807e19@sha256:2ea42a664c6de82b82a7d2b2ea9fe4ce413939bcff05d80aafb9e7cdf4128ff0 AS nudgedimage
 USER 0
 RUN echo "nudged image"
 RUN mkdir /testdir
